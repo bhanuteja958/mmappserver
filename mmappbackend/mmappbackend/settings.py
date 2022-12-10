@@ -41,14 +41,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.sessions',
     'rest_framework',
-    'transactions'
+    'rest_framework.authtoken',
+    'transactions',
+    'userauth'
 ]
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
     ],
-    'EXCEPTION_HANDLER': 'transactions.utils.custom_exception_handler'
+    'EXCEPTION_HANDLER': 'global_utils.custom_exception_handler'
 }
 
 MIDDLEWARE = [
