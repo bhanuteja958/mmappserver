@@ -16,7 +16,7 @@ class RegisterUser(APIView):
                 "user_details": new_user
             }),status=status.HTTP_201_CREATED)
         else:
-            return Response(getAPIResponse(True, 'Not valid data sent for creating customer'),status=status.HTTP_400_BAD_REQUEST)
+            return Response(getAPIResponse(True, list(serializer.errors.values())[0][0]),status=status.HTTP_400_BAD_REQUEST)
 
 class SignInUser(APIView):
     def post (self, request):
@@ -38,7 +38,7 @@ class SignInUser(APIView):
 class SignOutUser(APIView):
     def post(self,request):
         try:
-            request.user.auth_token.delete()
+            request.user.auth_token.delete()    
             logout(request)
             return Response(getAPIResponse(False, 'Successfully logged out'), status=status.HTTP_200_OK)
         except Exception as e:

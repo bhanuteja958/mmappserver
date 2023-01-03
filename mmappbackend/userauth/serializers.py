@@ -11,13 +11,12 @@ class UserLoginSerializer(serializers.Serializer):
     username=serializers.CharField(max_length=300, required=True)
     password=serializers.CharField(max_length=300, required=True)
    
-
 class AuthUserSerializer(serializers.ModelSerializer):
     auth_token = serializers.SerializerMethodField()
 
     class Meta:
         model=User
-        fields=['auth_token']
+        fields=['auth_token', 'username', 'email', 'date_joined']
     
     def get_auth_token(self,obj):
         token = Token.objects.create(user=obj)
