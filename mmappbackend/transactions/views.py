@@ -111,7 +111,7 @@ class TransactionAggregations(APIView):
         transactionSerializer = Transaction.objects.filter(user = request.user, created_date__year = year, created_date__month = month)
         transactions = TransactionSerializer(transactionSerializer, many=True)
 
-        if len(transactions.data) is 0:
+        if len(transactions.data) == 0:
             return Response(
                 getAPIResponse(
                     False, 'No Transactions added for the given month', data={}

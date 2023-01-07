@@ -18,7 +18,7 @@ class TransactionTypeSerializer(serializers.ModelSerializer):
         fields = ['id', 'type_name']
 
 class TransactionSerializer(serializers.ModelSerializer):
-    category = serializers.CharField(source='category.name', read_only=True)
+    category = serializers.CharField(source='category.category_name', read_only=True)
     transaction_type = serializers.CharField(source='transaction_type.type_name', read_only=True)
     payment_mode = serializers.CharField(source='payment_mode.mode_name', read_only=True)
     category_id = serializers.IntegerField(write_only=True)

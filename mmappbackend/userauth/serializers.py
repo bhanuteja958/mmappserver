@@ -10,7 +10,7 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
 class UserLoginSerializer(serializers.Serializer):
     username=serializers.CharField(max_length=300, required=True)
     password=serializers.CharField(max_length=300, required=True)
-   
+
 class AuthUserSerializer(serializers.ModelSerializer):
     auth_token = serializers.SerializerMethodField()
 

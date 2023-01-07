@@ -1,1 +1,3 @@
 mmappbackend/mmappbackend/.env
+.vscode
+**/__pycache__/
