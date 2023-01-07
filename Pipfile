@@ -9,8 +9,6 @@ djangorestframework = "*"
 django-environ = "*"
 mysqlclient = "*"
 django-cors-headers = "*"
-whitenoise = "*"
-gunicorn = "*"
 
 [dev-packages]
 
